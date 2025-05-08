@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <audio id="musica" loop >
+        <source src="sons/fundooraçao.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function tocarMusica() {
+          const audio = document.getElementById('musica');
+          audio.volume = 0.5; // controla o volume de 0.0 a 1.0
+          audio.play();
+          document.body.removeEventListener('click', tocarMusica); // toca só uma vez
+        }
+      
+        document.body.addEventListener('click', tocarMusica);
+      </script>
+ 
+    <h1>Clique em um</h1>
+    <div  class="boneco1" id="arthur"></div>
+    <div  class="boneco2" id="jc"></div>
+    <div  class="boneco3" id="salcicha" onclick="latir()"></div>
+    <div id="mensagem"></div>
+
+    <audio id="latido1">
+        <source src="sons/latido1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="latido2">
+        <source src="sons/latido2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="latido3">
+        <source src="sons/latido3.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function latir() {
+            const sons = [document.getElementById('latido1'),
+             document.getElementById('latido2'),
+              document.getElementById('latido3')];
+
+            
+            const escolhido = Math.floor(Math.random() * sons.length);
+            sons[escolhido].volume = 0.5;
+            sons[escolhido].currentTime = 0;
+            sons[escolhido].play();
+        }
+    </script>
+</body>
+</html>
