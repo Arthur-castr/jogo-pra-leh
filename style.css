@@ -7,6 +7,9 @@
     margin: 20px;
     margin-left: 100px;
     padding: 50px;
+    flex:1;
+    justify-content: space-between
+
   }
   
   .boneco1 {
